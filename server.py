@@ -1,24 +1,6 @@
 #!/usr/bin/env python3
 
-# from http.server import BaseHTTPRequestHandler, HTTPServer
-
-# Handler = BaseeHTTPRequestHandler
-
-# server_address = ('127.0.0.1', 8081)
-
-# # Handler.protocol_version = "HTTP/1.0"
-# httpd = HTTPServer(server_address, Handler)
-# print('running server...')
-# httpd.serve_forever()
-
-
-
-
-
-
-
-
-
+import asyncio
 from urllib.parse import parse_qs
 from http.server import BaseHTTPRequestHandler, HTTPServer
  
@@ -65,7 +47,7 @@ def run():
     print('running server...')
     httpd.serve_forever()
 
-def factor(val):
+async def factor(val):
     if isinstance(val, int):
         Ans = []
         d = 2
@@ -82,6 +64,6 @@ def factor(val):
         for an in Ans:
             multipliers += str(an) + " * "
         val = (str(val) + " = " + multipliers).rstrip("* ")
-    return val
+    return await val
 
 run()
